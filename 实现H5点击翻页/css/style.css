@@ -1,0 +1,52 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	height: 100vh;
+	overflow: hidden;
+}
+
+#book {
+	width: 100vw;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+h2{
+	text-align: center;
+}
+#pate1{
+	position: relative;
+	height: 100vh;
+	background-color: aquamarine;
+}
+#pate2{
+	position: relative;
+	height: 100vh;
+	background-color: darkorange;
+}
+#pate3{
+	position: relative;
+	height: 100vh;
+	background-color: fuchsia;
+}
+#pate4{
+	position: relative;
+	height: 100vh;
+	background-color: thistle;
+}
+
+
+.btn-up {
+	background-image: url(../images/arrow_up.png);
+	background-position: center 0;
+	background-size: cover;
+	width: 4rem;
+	height: 2.5rem;
+	position: absolute;
+	bottom: 2rem;
+	left: 50%;
+	margin-left: -2rem;
+}

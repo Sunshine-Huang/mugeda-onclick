@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>H5翻页</title>
+		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+	</head>
+	<body>
+		<div id="book">
+			<div id="pate1">
+				<h2>第一页</h2>
+				<div class="btn-up" onclick="gotoNextPage()"></div>
+			</div>
+
+			<div id="pate2">
+				<h2>第二页</h2>
+				<div class="btn-up" onclick="gotoNextPage()"></div>
+			</div>
+
+			<div id="pate3">
+				<h2>第三页</h2>
+				<div class="btn-up" onclick="gotoNextPage()"></div>
+			</div>
+
+			<div id="pate4">
+				<h2>第四页</h2>
+				<div class="btn-up" onclick="gotoNextPage()"></div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			function $(id) {
+				return document.getElementById(id);
+			}
+			//全局变量
+			var pageIndex = 0; //当前在第几页
+			//初始化
+			function init() {
+				var pages = $('book').children;
+
+				//设定总高度
+				$('book').style.height = (pages.length * 100) + 'vh';
+
+				//初始化当前页面，方便制作调试
+				$('book').style.transform = 'translate(0,-' + pageIndex * 100 + 'vh)';
+			}
+			init();
+			//跳转到第几页
+			function gotoPage(index) {
+				pageIndex = index;
+				$('book').style.transform = 'translate(0,-' + pageIndex * 100 + 'vh)';
+
+				//延迟1s再运行该页面的动画，页面切换设定有1s的时间过程
+				setTimeout(function() {
+					gotoPage(pageIndex);
+				}, 1000)
+			}
+
+			//跳转到下一页
+			function gotoNextPage() {
+				
+				if(pageIndex==3){
+					return;
+				}else{
+					pageIndex++;
+					gotoPage(pageIndex);
+				}
+				
+			}
+		</script>
+	</body>
+</html>
